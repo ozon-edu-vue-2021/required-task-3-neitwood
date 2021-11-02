@@ -14,6 +14,7 @@
 <script>
 import * as d3 from "d3";
 import tables from "../assets/data/tables.json";
+import legend from "../assets/data/legend.json";
 import MapSvg from "../assets/images/map.svg";
 import WorkPlaceSvg from "../assets/images/workPlace.svg";
 
@@ -62,7 +63,13 @@ export default {
           .attr("transform", `rotate(${table.rotate || 0})`)
           .attr("group_id", table.group_id)
           .classed("table", true)
-          .html(this.tableSVG.html());
+          .html(this.tableSVG.html())
+          .attr(
+            // устанавливаем цвет подразделения
+            "fill",
+            legend.find((it) => it.group_id === table.group_id)?.color ??
+              "transparent"
+          );
       });
     },
   },
