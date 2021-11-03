@@ -32,6 +32,9 @@ export default {
     MapSvg,
     WorkPlaceSvg,
   },
+  destroyed () {
+    document.removeEventListener("click", this.isClickOutside);
+  },
   mounted() {
     this.isLoading = true;
     this.svg = d3.select(this.$refs.svg);
@@ -43,6 +46,8 @@ export default {
       alert("SVG is incorrect");
     }
     this.isLoading = false;
+    document.addEventListener("click", this.isClickOutside);
+
   },
   methods: {
     drawTables() {
@@ -70,7 +75,19 @@ export default {
             legend.find((it) => it.group_id === table.group_id)?.color ??
               "transparent"
           );
+        targetSeat.on("click", () => this.$emit("clickTable", table["_id"]));
       });
+    },
+    isClickOutside(event){
+      let listTables = document.getElementsByClassName("table");
+      let outed = false;
+      for (let el of listTables) {
+        let target = event.target;
+        if (el !== target && !target.closest(".table")) {
+          outed = true;
+        }
+      }
+      if (outed) this.$emit("clickOut", false);
     },
   },
 };

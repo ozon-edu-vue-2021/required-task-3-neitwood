@@ -116,7 +116,6 @@ export default {
           display: false,
         },
       };
-      console.log("this.$refs.chart", this.$refs.chart);
       this.$refs.chart.renderChart(charData, options);
     },
     closeProfile() {
