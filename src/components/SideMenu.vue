@@ -88,7 +88,7 @@ export default {
     loadLegend() {
       this.legend = legend;
     },
-    makeChart(){
+    makeChart() {
       const charData = {
         labels: this.legend.map((legendItem) => legendItem.text),
         datasets: [
@@ -102,7 +102,7 @@ export default {
       const options = {
         legend: {
           display: false,
-        }
+        },
       };
       console.log("this.$refs.chart", this.$refs.chart);
       this.$refs.chart.renderChart(charData, options);
