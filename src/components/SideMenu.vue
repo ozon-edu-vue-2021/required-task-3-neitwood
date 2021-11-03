@@ -53,6 +53,7 @@
 import LegendItem from "./SideMenu/LegendItem.vue";
 import PersonCard from "./SideMenu/PersonCard.vue";
 import legend from "@/assets/data/legend.json";
+import tables from "@/assets/data/tables.json";
 import { Doughnut } from "vue-chartjs";
 import Draggable from "vuedraggable";
 export default {
@@ -75,6 +76,7 @@ export default {
   data() {
     return {
       legend: [],
+      tables: tables,
       drag: false,
     };
   },
@@ -82,9 +84,19 @@ export default {
     this.loadLegend();
   },
   mounted() {
+    this.recountLegends();
     this.makeChart();
   },
   methods: {
+    recountLegends() {
+      this.tables.forEach((tableItem) => {
+        this.legend.forEach((legendItem) => {
+          if (tableItem["group_id"] === legendItem["group_id"]) {
+            legendItem.counter++;
+          }
+        });
+      });
+    },
     loadLegend() {
       this.legend = legend;
     },

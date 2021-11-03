@@ -1,74 +1,59 @@
 [
     {
         "_id": 0,
-        "x": 10,
+        "x": 18,
         "y": 20,
         "group_id": 1,
-        "rotate": 80
+        "rotate": 81
     },
     {
         "_id": 1,
-        "x": 20,
+        "x": 28,
         "y": 18,
         "group_id": 1,
-        "rotate": 80
+        "rotate": 81
     },
     {
         "_id": 2,
-        "x": 30,
+        "x": 38,
         "y": 16,
-        "group_id": 2,
-        "rotate": 80
+        "group_id": 1,
+        "rotate": 81
     },
     {
         "_id": 3,
-        "x": 12,
+        "x": 20,
         "y": 30,
         "group_id": 2,
         "rotate": 80
     },
     {
         "_id": 4,
-        "x": 22,
+        "x": 30,
         "y": 28,
-        "group_id": 1,
+        "group_id": 2,
         "rotate": 80
     },
     {
         "_id": 5,
-        "x": 32,
+        "x": 40,
         "y": 26,
-        "group_id": 1,
-        "rotate": 80
-    },
-
-    {
-        "_id": 6,
-        "x": 14,
-        "y": 40,
-        "group_id": 1,
-        "rotate": 80
-    },
-    {
-        "_id": 7,
-        "x": 24,
-        "y": 38,
-        "group_id": 0,
-        "rotate": 80
-    },
-    {
-        "_id": 8,
-        "x": 34,
-        "y": 36,
-        "group_id": 0,
+        "group_id": 2,
         "rotate": 80
     },
 
     {
         "_id": 9,
-        "x": 80,
+        "x": 75,
         "y": 18,
         "group_id": 0,
+        "rotate": 80
+    },
+    {
+        "_id": 20,
+        "x": 85,
+        "y": 16,
+        "group_id": 1,
         "rotate": 80
     },
     {
@@ -82,13 +67,6 @@
         "_id": 11,
         "x": 82,
         "y": 48,
-        "group_id": 1,
-        "rotate": 80
-    },
-    {
-        "_id": 12,
-        "x": 84,
-        "y": 58,
         "group_id": 3,
         "rotate": 80
     }
