@@ -31,6 +31,7 @@
         </div>
         <div class="legend__chart">
           <!-- chart -->
+          <Doughnut ref="chart" />
         </div>
       </div>
       <div v-else class="profile">
@@ -46,7 +47,7 @@
 import LegendItem from "./SideMenu/LegendItem.vue";
 import PersonCard from "./SideMenu/PersonCard.vue";
 import legend from "@/assets/data/legend.json";
-
+import { Doughnut } from "vue-chartjs";
 export default {
   props: {
     isUserOpenned: {
@@ -61,6 +62,7 @@ export default {
   components: {
     LegendItem,
     PersonCard,
+    Doughnut,
   },
   data() {
     return {
@@ -70,9 +72,31 @@ export default {
   created() {
     this.loadLegend();
   },
+  mounted() {
+    this.makeChart();
+  },
   methods: {
     loadLegend() {
       this.legend = legend;
+    },
+    makeChart(){
+      const charData = {
+        labels: this.legend.map((legendItem) => legendItem.text),
+        datasets: [
+          {
+            // label: "Легенда",
+            backgroundColor: this.legend.map((legendItem) => legendItem.color),
+            data: this.legend.map((legendItem) => legendItem.counter),
+          },
+        ],
+      };
+      const options = {
+        legend: {
+          display: false,
+        }
+      };
+      console.log("this.$refs.chart", this.$refs.chart);
+      this.$refs.chart.renderChart(charData, options);
     },
     closeProfile() {
       this.$emit("update:isUserOpenned", false);
